@@ -62,7 +62,7 @@ export default function DashboardPage() {
   };
 
   useEffect(() => { load();
-    console.log("DashboardPage mounted, loading projects...");
+  
    }, []);
 
   const createProject = async () => {
