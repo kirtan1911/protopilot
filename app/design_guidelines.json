@@ -1,0 +1,124 @@
+{
+  "project_name": "ProtoPilot",
+  "domain": "AI-powered meeting-to-prototype generation, SaaS dashboard",
+  "theme": "DARK",
+  "archetype": "Archetype 4 (Swiss & High-Contrast Tech) blended with Glassmorphism 2.0",
+  "visual_mood": "Professional, efficient, AI-native, high-contrast, deep-space tech",
+  "colors": {
+    "background_primary": "#0d1117",
+    "background_secondary": "#161b22",
+    "glass_surface": "rgba(22, 27, 34, 0.6)",
+    "glass_surface_light": "rgba(255, 255, 255, 0.03)",
+    "accent_primary": "#4f46e5",
+    "accent_primary_hover": "#6366f1",
+    "accent_glow": "rgba(79, 70, 229, 0.3)",
+    "text_primary": "#ffffff",
+    "text_secondary": "#9ca3af",
+    "text_muted": "#6b7280",
+    "border_subtle": "rgba(255, 255, 255, 0.1)",
+    "border_focus": "rgba(79, 70, 229, 0.5)",
+    "success": "#10b981",
+    "error": "#ef4444",
+    "warning": "#f59e0b"
+  },
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Outfit, sans-serif",
+    "mono_font": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-white",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-white",
+      "h3": "text-xl sm:text-2xl font-medium text-gray-200",
+      "h4": "text-lg font-medium text-gray-200",
+      "body": "text-base text-gray-300 leading-relaxed",
+      "small": "text-sm text-gray-400",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em] text-indigo-400"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous: Use p-6, p-8 for cards; gap-6, gap-8 for grids to let the dark theme breathe.",
+    "dashboard_grid": "Control Room Grid: grid-cols-1 md:grid-cols-3 lg:grid-cols-4 or 12-col grid for complex layouts.",
+    "sidebar": "w-64 or w-72 fixed sidebar on desktop, hidden behind hamburger on mobile.",
+    "page_container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-indigo-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_20px_rgba(79,70,229,0.5)] transition-all duration-200",
+      "secondary": "bg-[#161b22] text-white border border-white/10 rounded-lg px-4 py-2 font-medium hover:bg-white/5 transition-all duration-200",
+      "ghost": "text-gray-300 hover:text-white hover:bg-white/5 rounded-lg px-4 py-2 transition-all duration-200"
+    },
+    "cards": {
+      "glassmorphic": "bg-[#0d1117]/60 backdrop-blur-xl border border-white/10 rounded-xl shadow-lg overflow-hidden",
+      "solid": "bg-[#161b22] border border-white/5 rounded-xl shadow-md",
+      "hover_effect": "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-300"
+    },
+    "inputs": {
+      "default": "bg-[#0d1117] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all",
+      "file_upload_dropzone": "border-2 border-dashed border-white/20 rounded-xl p-12 flex flex-col items-center justify-center bg-white/5 hover:bg-white/10 hover:border-indigo-500/50 transition-all cursor-pointer"
+    },
+    "navigation": {
+      "sidebar": "bg-[#0d1117]/80 backdrop-blur-xl border-r border-white/10 h-screen sticky top-0",
+      "nav_item_active": "bg-indigo-500/10 text-indigo-400 border-r-2 border-indigo-500",
+      "nav_item_inactive": "text-gray-400 hover:bg-white/5 hover:text-gray-200"
+    },
+    "tabs": {
+      "list": "bg-[#161b22] p-1 rounded-lg inline-flex",
+      "trigger_active": "bg-[#0d1117] text-white shadow-sm rounded-md",
+      "trigger_inactive": "text-gray-400 hover:text-gray-200"
+    },
+    "badges": {
+      "default": "px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+    }
+  },
+  "motion_and_interactions": {
+    "page_transition": "Fade in with slight upward motion (framer-motion: initial={{ opacity: 0, y: 10 }}, animate={{ opacity: 1, y: 0 }})",
+    "hover_states": "Buttons and cards should have subtle scaling (scale-105) and glow enhancements",
+    "loading_state": "Use skeleton loaders with a sweeping gradient animation (shimmer) matching the dark theme: bg-[#161b22] to bg-[#21262d]"
+  },
+  "specific_views": {
+    "login_page": "Split screen or centered glass card. Use the abstract dark blue technology background behind a glassmorphic login panel. The panel should be max-w-md w-full p-8 bg-[#0d1117]/70 backdrop-blur-2xl border border-white/10 rounded-2xl.",
+    "dashboard_grid": "Bento-box style grid for projects. Each project card shows a glowing status indicator, project name, last edited date, and a subtle icon representing its current phase (transcribing, generating, complete).",
+    "project_detail_tabs": "A master layout with a top header detailing project metadata, and a robust tab navigation below. The content area renders the specific editor/viewer based on the active tab.",
+    "transcript_editor": "A clean, typography-focused view. The text area should resemble a high-end code editor or prose editor, with subtle highlights for speaker changes.",
+    "requirements_view": "Masonry or multi-column grid of cards. Functional, Non-functional, Constraints broken out into highly readable glassmorphic cards with inline edit capabilities.",
+    "db_schema_api_viewer": "Technical interface. Use Monospace fonts for data types and endpoints. Render DB tables as distinct cards with lines or clear spacing. API specs should follow a swagger-like clean layout (Method badge + Endpoint path)."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "login_background",
+        "url": "https://images.pexels.com/photos/10653941/pexels-photo-10653941.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Abstract blue light patterns on dark backdrop, used for login/signup page background."
+      },
+      {
+        "category": "user_avatar_placeholder",
+        "url": "https://images.pexels.com/photos/19805878/pexels-photo-19805878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Portrait of a developer, used as a placeholder for the logged-in user avatar."
+      },
+      {
+        "category": "logo_placeholder",
+        "url": "https://images.pexels.com/photos/13934813/pexels-photo-13934813.jpeg",
+        "description": "Minimalist white abstract shapes, can be used or cropped as a subtle logo placeholder."
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "instruction": "Use Lucide React for all standard icons. Ensure stroke-width is consistent (typically 1.5 or 2)."
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure all text against the #0d1117 background meets minimum 4.5:1 ratio.",
+    "focus_rings": "All interactive elements must have focus-visible ring (e.g., focus-visible:ring-2 focus-visible:ring-indigo-500).",
+    "testing_attributes": "All interactive elements (buttons, inputs, tabs, project cards) MUST have a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the color palette. Do not use pure black (#000000) or generic Tailwind slate/gray as backgrounds; use #0d1117 and #161b22.",
+    "Ensure the Outfit font is loaded globally (e.g., via Google Fonts) and applied to the font-sans utility in Tailwind.",
+    "Build the dashboard layout with a sticky sidebar and a scrollable main content area.",
+    "Implement glassmorphism strictly using the provided utility combinations (e.g., bg-[#0d1117]/60 backdrop-blur-xl border-white/10).",
+    "For the audio upload feature, build a drag-and-drop zone using the file_upload_dropzone styles.",
+    "Add data-testid attributes to EVERY interactive element.",
+    "In the project detail page, use Shadcn Tabs for navigating between Transcript, Requirements, SRS, Wireframe, Schema, and API Spec.",
+    "Mock AI loading states using the sweeping gradient shimmer effect."
+  ]
+}
