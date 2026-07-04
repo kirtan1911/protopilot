@@ -62,7 +62,6 @@ export default function DashboardPage() {
   };
 
   useEffect(() => { load();
-    console.log('load function called...');
     
    }, []);
 
