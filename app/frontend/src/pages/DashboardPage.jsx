@@ -61,7 +61,10 @@ export default function DashboardPage() {
     }
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => { load();
+    console.log('load function called...');
+    
+   }, []);
 
   const createProject = async () => {
     if (!name.trim()) return;
