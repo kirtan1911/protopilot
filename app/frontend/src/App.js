@@ -6,8 +6,21 @@ import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import DashboardPage from "@/pages/DashboardPage";
 import ProjectDetailPage from "@/pages/ProjectDetailPage";
+import RequirementAnalysisPage from "@/pages/RequirementAnalysisPage";
 import LandingPage from "@/pages/LandingPage";
+import ForgotPasswordPage from "@/pages/ForgotPasswordPage";
+import VerifyOtpPage from "@/pages/VerifyOtpPage";
+import ResetPasswordPage from "@/pages/ResetPasswordPage";
 
+/** Redirect logged-in users to dashboard for public routes */
+function PublicRoute({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return null;
+  if (user) return <Navigate to="/dashboard" replace />;
+  return children;
+}
+
+/** Redirect unauthenticated users to login for protected routes */
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
   if (loading) {
@@ -27,9 +40,29 @@ function App() {
       <BrowserRouter>
         <Toaster position="top-right" theme="dark" richColors />
         <Routes>
+          {/* Public */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignupPage />
+              </PublicRoute>
+            }
+          />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/verify-otp" element={<VerifyOtpPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+          {/* Protected */}
           <Route
             path="/dashboard"
             element={
@@ -46,6 +79,17 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/project/:id/requirements"
+            element={
+              <ProtectedRoute>
+                <RequirementAnalysisPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

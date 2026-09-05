@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: protopilot-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: protopilot
+    networks:
+      - protopilot-net
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: protopilot-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URL: mongodb://mongodb:27017
+      DB_NAME: protopilot
+      CORS_ORIGINS: http://localhost:3000
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ALGORITHM: HS256
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.6-flash}
+      WHISPER_MODEL_SIZE: ${WHISPER_MODEL_SIZE:-base}
+      SMTP_EMAIL: ${SMTP_EMAIL:-}
+      SMTP_APP_PASSWORD: ${SMTP_APP_PASSWORD:-}
+    volumes:
+      - ./app/backend/uploads:/app/uploads
+      - ./app/backend/exports:/app/exports
+    networks:
+      - protopilot-net
+
+  frontend:
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+    container_name: protopilot-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - protopilot-net
+
+volumes:
+  mongo_data:
+
+networks:
+  protopilot-net:
+    driver: bridge

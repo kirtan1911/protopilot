@@ -82,7 +82,9 @@ export default function LandingPage() {
       </section>
 
       <footer className="border-t border-white/10 py-8 text-center text-xs text-gray-500">
-        Built with FastAPI · React · MongoDB · Emergent Universal LLM
+        Built with FastAPI · React · MongoDB · Gemini AI · Whisper
+        <span className="mx-3 text-gray-700">·</span>
+        © {new Date().getFullYear()} ProtoPilot
       </footer>
     </div>
   );

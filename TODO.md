@@ -1,7 +1,0 @@
-- [ ] Check/create backend .env with required secrets/DB/Gemini
-- [ ] Create backend venv and install backend requirements
-- [ ] Start backend (uvicorn) and verify / returns
-- [ ] Install frontend dependencies
-- [ ] Create frontend .env with REACT_APP_BACKEND_URL
-- [ ] Start frontend (CRACO) and verify app loads
-- [ ] Confirm CORS/backend URL wiring

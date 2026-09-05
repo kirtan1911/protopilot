@@ -1,1 +1,10 @@
 .env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+uploads/
+exports/
+*.log
